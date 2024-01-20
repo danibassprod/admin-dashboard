@@ -1,0 +1,23 @@
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: minmax(50px, 7.5vw);
+    grid-template-areas: "sidebar header"
+                         "sidebar content";
+                         
+    > .header {
+        grid-area: header;
+        background-color: lightslategray;
+    }
+
+    > .sidebar {
+        grid-area: sidebar;
+        background-color: lightgoldenrodyellow;
+    }
+
+    > .content {
+        grid-area: content;
+        background-color: lightskyblue;
+    }
+}
