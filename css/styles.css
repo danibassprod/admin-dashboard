@@ -1,3 +1,11 @@
+:root {
+    --font-stack: 'Open Sans', system-ui;
+}
+
+body {
+    font-family: var(--font-stack);
+}
+
 .container {
     height: 100vh;
     display: grid;
@@ -12,7 +20,12 @@
     }
 
     > .sidebar {
+        padding-left: 25px;
         grid-area: sidebar;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: minmax(50px, 7.5vw) repeat(11, minmax(30px, 3.4vw));
+        grid-template-areas: "logo link";
         background-color: lightgoldenrodyellow;
     }
 
@@ -20,4 +33,56 @@
         grid-area: content;
         background-color: lightskyblue;
     }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Sidebar styling */
+
+.dashb-logo { 
+    grid-area: logo; 
+    align-self: center;
+    justify-self: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.dashb-text {
+    grid-area: link; 
+    align-self: center;
+    font-weight: bold;
+    font-size: max(1rem, 2vw);
+}
+
+.logo {
+    grid-column: 1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: black;
+    align-self: center;
+    justify-self: center;
+}
+
+.link {
+    grid-column: 2;
+    align-self: center;
+    font-weight: bold;
+}
+
+.settings {
+    grid-row: -5;
+}
+
+.support {
+    grid-row: -4;
+}
+
+.privacy {
+    grid-row: -3;
 }
