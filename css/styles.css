@@ -10,13 +10,19 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: minmax(50px, 7.5vw);
+    grid-template-rows: minmax(100px, 9vw);
     grid-template-areas: "sidebar header"
                          "sidebar content";
                          
     > .header {
         grid-area: header;
         background-color: lightslategray;
+        padding: 13px clamp(10px, 3vw, 10vw);
+        display: grid;
+        grid-template-rows: 1fr 1.5fr;
+        grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "search-icon search-bar search-bar notif profile-pic username"
+                             "profile-picture welcome welcome new upload share";
     }
 
     > .sidebar {
@@ -24,7 +30,7 @@ body {
         grid-area: sidebar;
         display: grid;
         grid-template-columns: 1fr 4fr;
-        grid-template-rows: minmax(50px, 7.5vw) repeat(11, minmax(30px, 3.4vw));
+        grid-template-rows: minmax(100px, 9vw) repeat(11, minmax(30px, 3.4vw));
         grid-template-areas: "logo link";
         background-color: lightgoldenrodyellow;
     }
@@ -38,6 +44,21 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+p,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+
+button {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 10px;
 }
 
 /* Sidebar styling */
@@ -85,4 +106,112 @@ a {
 
 .privacy {
     grid-row: -3;
+}
+
+/* Header styling */
+
+/* Row one */
+
+.search-icon {
+    grid-area: search-icon;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: black;
+    align-self: center;
+    justify-self: center;
+}
+
+.search-bar {
+    grid-area: search-bar;
+    appearance: none;
+    margin: 0;
+    border: none;
+    border-radius: 21px;
+    padding: 0 20px;
+    height: 35px;
+    align-self: center;
+}
+
+.search-bar:focus-visible {
+    outline: none;
+}
+
+.notif {
+    grid-area: notif;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: black;
+    align-self: center;
+    justify-self: end;
+}
+
+.profile-pic {
+    grid-area: profile-pic;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+    align-self: center;
+    justify-self: center;
+}
+
+.username {
+    grid-area: username;
+    font-weight: bold;
+    margin: 0;
+    align-self: center;
+    font-size: 1.2rem;
+}
+
+/* Lower two */
+
+.profile-picture {
+    grid-area: profile-picture;
+    align-self: center;
+    justify-self: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.welcome {
+    padding: 0;
+    margin: 0;
+    grid-area: welcome;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > p {
+        font-size: min(1rem, 1vw);
+    }
+
+    > h2 {
+        font-size: min(1.5rem, 1.5vw);
+    }
+}
+
+
+.new,
+.upload,
+.share {
+    font-size: min(1rem, 1.1vw);
+    width: 80px;
+    height: 40px;
+    align-self: center;
+    justify-self: center;
+}
+
+.new {
+    grid-area: new;
+}
+
+.upload {
+    grid-area: upload;
+}
+
+.share {
+    grid-area: share;
 }
