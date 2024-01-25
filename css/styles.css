@@ -3,6 +3,7 @@
     --font-color: #001a33;
     --bg-color: #f1f5f9;
     --sidebar-bg-color: #f8fafc;
+    --header-bg-color: #475569;
     --card-shadow: 0px 2px 7px 0px #00000038;
     --cards-bg-color: #f8fafc;
 }
@@ -29,13 +30,12 @@ img {
                          
     > .header {
         grid-area: header;
-        background-color: lightslategray;
         padding: 13px clamp(10px, 3vw, 10vw);
         display: grid;
         grid-template-rows: 1fr 1.5fr;
         grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr;
-        grid-template-areas: "search-icon search-bar search-bar notif profile-pic username"
-                             "profile-picture welcome welcome new upload share";
+        grid-template-areas: "  search-icon     search-bar  search-bar    notif    profile-pic username"
+                             "profile-picture    welcome    welcome    new upload     share";
     }
 
     > .sidebar {
@@ -51,7 +51,7 @@ img {
 
     > .content {
         width: 96%;
-        height: 96%;
+        height: 86%;
         grid-area: content;
         justify-self: center;
         align-self: center;   
@@ -135,67 +135,77 @@ button {
 
 .search-icon {
     grid-area: search-icon;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: black;
+    width: 55%;
+    height: 55%;
     align-self: center;
     justify-self: center;
+}
+
+.button:hover,
+.notif:hover,
+.profile-pic:hover,
+.profile-picture:hover,
+.search-icon:hover {
+    cursor: pointer;
 }
 
 .search-bar {
     grid-area: search-bar;
     appearance: none;
     margin: 0;
-    border: none;
+    border: 1px solid #dcdcdc;
     border-radius: 21px;
     padding: 0 20px;
-    height: 35px;
+    height: min(2.6vw, 60px);
     align-self: center;
+}
+
+.search-bar:hover {
+    transition: .3s;
+    background-color: #fcfcfc;
 }
 
 .search-bar:focus-visible {
     outline: none;
 }
 
+.search-bar::placeholder {
+    font-size: 1.2vw;
+}
+
 .notif {
     grid-area: notif;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: black;
+    width: 55%;
+    height: 55%;
     align-self: center;
     justify-self: end;
 }
 
 .profile-pic {
     grid-area: profile-pic;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: black;
+    width: 55%;
+    height: 55%;
     align-self: center;
     justify-self: center;
 }
 
 .username {
     grid-area: username;
-    font-weight: bold;
+    font-weight: 400;
     margin: 0;
+    justify-self: center;
     align-self: center;
-    font-size: 1.2rem;
+    font-size: min(1.2vw, 35px)
 }
 
-/* Lower two */
+/* Row two */
 
 .profile-picture {
     grid-area: profile-picture;
     align-self: center;
     justify-self: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: black;
+    width: 2.9vw;
+    height: 2.9vw;
 }
 
 .welcome {
@@ -206,7 +216,7 @@ button {
     flex-direction: column;
     justify-content: center;
     > p {
-        font-size: min(1rem, 1vw);
+        font-size: min(1.2rem, 1vw);
     }
 
     > h2 {
@@ -218,11 +228,22 @@ button {
 .new,
 .upload,
 .share {
-    font-size: min(1rem, 1.1vw);
-    width: 80px;
-    height: 40px;
+    font-size: 0.9vw;
+    width: clamp(10px, 6vw, 150px);
+    height: clamp(20px, 2.4vw, 75px);
+    border-radius: 5px;
     align-self: center;
     justify-self: center;
+}
+
+button:hover {
+    transition: 0.1s;
+    filter: brightness(98%);
+}
+
+button:active {
+    transition: 0.1s;
+    filter: brightness(95%);
 }
 
 .new {
@@ -249,7 +270,7 @@ button {
     grid-area: left-wrapper;
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
     > .card {
         width: 100%;
