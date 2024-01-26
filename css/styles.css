@@ -1,5 +1,5 @@
 :root {
-    --font-stack: 'Open Sans', system-ui;
+    --font-stack: 'Open Sans', system-ui, Roboto, 'Open Sans', sans-serif;
     --font-color: #001a33;
     --bg-color: #f1f5f9;
     --sidebar-bg-color: #f8fafc;
@@ -26,8 +26,7 @@ img {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: minmax(100px, 9vw);
     grid-template-areas: "sidebar header"
-                         "sidebar content";
-                         
+                         "sidebar content";      
     > .header {
         grid-area: header;
         padding: 13px clamp(10px, 3vw, 10vw);
@@ -46,7 +45,7 @@ img {
         grid-template-rows: minmax(100px, 9vw) repeat(11, minmax(30px, 3.4vw));
         grid-template-areas: "logo link";
         background-color: var(--sidebar-bg-color);
-        box-shadow: -12px 0px 12px 9px black;
+        box-shadow: -16px 0px 12px 9px black;
     }
 
     > .content {
@@ -61,7 +60,6 @@ img {
         grid-template-rows: minmax(25px, 2vw);
         grid-template-areas: "text1 text2"
                              "left-wrapper right-wrapper";
-
     }
 }
 
@@ -75,7 +73,6 @@ h2 {
     margin: 0;
     padding: 0;
 }
-
 
 button {
     appearance: none;
@@ -145,7 +142,8 @@ button {
 .notif:hover,
 .profile-pic:hover,
 .profile-picture:hover,
-.search-icon:hover {
+.search-icon:hover,
+button {
     cursor: pointer;
 }
 
@@ -224,7 +222,6 @@ button {
     }
 }
 
-
 .new,
 .upload,
 .share {
@@ -264,6 +261,7 @@ button:active {
     grid-area: text1;
     align-self: center;
     font-weight: bold;
+    font-size: min(1.6rem, 1vw);
 }
 
 .left-wrapper {
@@ -277,7 +275,7 @@ button:active {
         height: 100%;
         box-shadow: var(--card-shadow);
         background-color: var(--cards-bg-color);
-        border-left: 5px solid rgb(1, 34, 223);
+        border-left: 5px solid #475569;
         border-radius: 5px;
         padding: 20px 25px;
         box-sizing: border-box;
@@ -292,21 +290,22 @@ button:active {
 
         > p {
             margin-bottom: auto;
-            font-size: min(1.5rem, 1vw);
-            /* overflow: hidden; */
+            font-size: max(0.3rem, 1.1vw);
         }
     }
+}
+
+.card:hover {
+    cursor: pointer;
 }
 
 .card-icons {
     display: flex;
     gap: 5px;
     align-self: end;
-    > div {
-        width: 25px;
-        height: 25px;
-        background-color: black;
-        border-radius: 50%;
+    > img {
+        width: 1.6vw;
+        height: 1.6vw;
     }
 }
 
@@ -316,7 +315,6 @@ button:active {
 
 .right-wrapper {
     grid-area: right-wrapper;
-    /* border: 1px solid black; */
     display: grid;
     grid-template-rows: 3fr 0.5fr 3fr;
     justify-items: center;
@@ -342,15 +340,23 @@ button:active {
     }
 }
 
+.wrapper-card + p {
+    font-size: max(0.3rem, 1.1vw);
+}
+
 .trending-card {
     display: flex;
     align-items: center;
     gap: 10px;
+    > img {
+        width: 3.2vw;
+        height: 3.2vw;
+    }
     h4 {
         font-size: max(5px, 1.1vw);
         margin: 0;
         + p {
-            font-size: clamp(10px, 1rem, 1vw);
+            font-size: clamp(5px, 1vw, 30px);
         }
     }
 }
@@ -359,12 +365,13 @@ button:active {
 
     border: 2px dotted black;
     border-radius: 5px;
-    padding: max(10px, 0.8vw);
+    width: 92%;
     h5 {
+        font-size: max(0.5rem, 1.3vw);
         margin: 0;
     }
 
     p {
-        font-size: max(0.5rem, 1vw);
+        font-size: max(0.2rem, 1vw);
     }
 }
