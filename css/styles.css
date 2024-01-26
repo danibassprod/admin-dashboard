@@ -366,6 +366,7 @@ button:active {
     border: 2px dotted black;
     border-radius: 5px;
     width: 92%;
+    padding: 5px;
     h5 {
         font-size: max(0.5rem, 1.3vw);
         margin: 0;
@@ -373,6 +374,5 @@ button:active {
 
     p {
         font-size: max(0.2rem, 1vw);
-        padding: 5px;
     }
 }
